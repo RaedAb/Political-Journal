@@ -1,0 +1,89 @@
+/*
+=============== 
+Articles section
+===============
+*/
+
+.articles {
+    background-color: var(--clr-grey-11);
+    padding: 5%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 10px;
+    z-index: 1;
+}
+
+.articles a {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: var(--clr-grey-10);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.articles a:hover {
+    transform: scale(1.035);
+    transition: 0.5s;
+}
+
+.articles h4:hover,
+.articles h5:hover,
+.articles h6:hover {
+    opacity: 0.75;
+    transition: 0.25s;
+}
+
+.articles a h4 {
+    font-size: 18px;
+    margin: 5px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.articles a h6 {
+    font-size: 12px;
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.articles a p {
+    margin: 5px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    text-align: left;
+}
+
+@media screen and (min-width: 900px) {
+    .articles {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+}
+
+/*
+=============== 
+Section for the articles page itself
+===============
+*/
+
+.articles-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5% 5%;
+}
+
+.articles-page h3 {
+    background-color: var(--clr-grey-10);
+    padding: 5% 10%;
+    font-size: 18px;
+}
