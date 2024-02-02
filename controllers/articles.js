@@ -1,9 +1,17 @@
-const getAllArticles = (req, res) => {
-    res.send('get all articles')
+const Article = require('../models/Article')
+
+const getAllArticles = async (req, res) => {
+    try {
+        const articles = await Article.find()
+        res.status(200).json({ articles })
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' })
+    }
 }
 
-const createArticle = (req, res) => {
-    res.send('create article')
+const createArticle = async (req, res) => {
+    const article = await Article.create(req.body)
+    res.status(201).json({ article })
 }
 
 const getArticle = (req, res) => {
