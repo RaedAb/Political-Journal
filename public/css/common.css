@@ -67,7 +67,8 @@ Global Styles
     padding: 0;
     box-sizing: border-box;
 }
-html, body {
+html,
+body {
     height: 100%;
 }
 body {
@@ -168,4 +169,11 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    padding: 5% 5%;
+}
+.page h3 {
+    background-color: var(--clr-grey-10);
+    padding: 5% 10%;
+    font-size: 18px;
 }

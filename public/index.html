@@ -22,7 +22,7 @@
             <div class="nav-center">
                 <!-- nav header -->
                 <div class="nav-header">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="./images/logo.svg" class="logo" alt="logo" />
                     </a>
                     <button class="nav-toggle">
@@ -32,16 +32,16 @@
                 <!-- links -->
                 <ul class="links">
                     <li>
-                        <a href="index.html">home</a>
+                        <a href="/">home</a>
                     </li>
                     <li>
-                        <a href="about.html">about</a>
+                        <a href="/about">about</a>
                     </li>
                     <li>
-                        <a href="articles.html">Articles</a>
+                        <a href="articles">Articles</a>
                     </li>
                     <li>
-                        <a href="contact.html">contact</a>
+                        <a href="contact">contact</a>
                     </li>
                 </ul>
                 <!-- social media -->
@@ -67,29 +67,46 @@
         <section class="page">
             <!-- Slideshow container -->
             <div class="slideshow-container">
-
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
+                    <img
+                        src="./images/socatra-tree.jpeg"
+                        alt="Tree in socatra"
+                    />
                     <div class="text">
-                        <h4>Example Title: I do not know what title to come up with.</h4>
+                        <h4>
+                            Example Title: I do not know what title to come up
+                            with.
+                        </h4>
                         <h5>Raed Abuzaid</h5>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Non arcu risus quis varius quam. Elit at imperdiet dui accumsan sit. Lorem dolor sed viverra ipsum nunc aliquet bibendum. Adipiscing enim eu turpis egestas pretium aenean pharetra magna.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Non arcu risus quis varius
+                            quam. Elit at imperdiet dui accumsan sit. Lorem
+                            dolor sed viverra ipsum nunc aliquet bibendum.
+                            Adipiscing enim eu turpis egestas pretium aenean
+                            pharetra magna.
                         </p>
                     </div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">2 / 3</div>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
+                    <img
+                        src="./images/socatra-tree.jpeg"
+                        alt="Tree in socatra"
+                    />
                     <div class="text">Caption Two</div>
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">3 / 3</div>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
+                    <img
+                        src="./images/socatra-tree.jpeg"
+                        alt="Tree in socatra"
+                    />
                     <div class="text">Caption Three</div>
                 </div>
 
@@ -99,70 +116,24 @@
             </div>
 
             <!-- The dots/circles -->
-            <div style="text-align:center">
+            <div style="text-align: center">
                 <span class="dot" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
                 <span class="dot" onclick="currentSlide(3)"></span>
             </div>
-            <div class="articles">
-                <!-- Articles -->
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
-                <a>
-                    <img src="./images/socatra-tree.jpeg" alt="Tree in socatra" />
-                    <h4>Example article</h4>
-                    <h6>Read More &rarr;</h6>
-                    <p>Raed Abuzaid &#183 December 25, 2023</p>
-                </a>
+            <div class="articles" id="articles-container">
+                <!-- Placeholder for Dynamically Loaded Articles -->
             </div>
         </section>
         <!--Footer -->
         <footer class="page-footer">
             <p>
-                The views expressed by our writers are their own and do not necessarily reflect the views of Hunter College
+                The views expressed by our writers are their own and do not
+                necessarily reflect the views of Hunter College
             </p>
             <div class="copyright">
-                &copy; 2023 Hunter College Political Journal. All rights reserved.
+                &copy; 2023 Hunter College Political Journal. All rights
+                reserved.
             </div>
             <ul class="social-icons-footer">
                 <li>

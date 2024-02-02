@@ -67,23 +67,3 @@ Articles section
         gap: 10px;
     }
 }
-
-/*
-=============== 
-Section for the articles page itself
-===============
-*/
-
-.articles-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5% 5%;
-}
-
-.articles-page h3 {
-    background-color: var(--clr-grey-10);
-    padding: 5% 10%;
-    font-size: 18px;
-}
