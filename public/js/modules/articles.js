@@ -1,12 +1,7 @@
 const loadArticles = async () => {
-    console.log('How many times is this bieng tapped')
     const articlesContainer = document.getElementById('articles-container')
 
     try {
-        if (!articlesContainer) {
-            throw new Error('Articles container element not found')
-        }
-
         const response = await fetch('/api/v1/articles')
         if (!response.ok) {
             throw new Error('Failed to fetch articles')
