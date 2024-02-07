@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-
+const path = require('path')
 const articles = require('./routes/articles')
 const router = require('./routes/routes')
 
@@ -8,11 +8,15 @@ const router = require('./routes/routes')
 const connectDB = require('./db/connect')
 require('dotenv').config()
 
-//Static assets
-app.use(express.static('./public'))
-// parse form data
+// set view engine to ejs
+app.set('view engine', 'ejs')
+
+// //Static assets
+app.use(express.static(path.join(__dirname, 'public')))
+
+// // parse form data
 app.use(express.urlencoded({ extended: false }))
-// parse json
+// // parse json
 app.use(express.json())
 
 // api
@@ -25,6 +29,8 @@ app.use('/', router)
 app.all('*', (req, res) => {
     res.status(404).send('Resource not found')
 })
+
+app.set('views', path.join(__dirname, 'views/pages'))
 
 const port = 5000
 // Load the DB and then start the server:

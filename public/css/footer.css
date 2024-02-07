@@ -2,7 +2,6 @@
     padding: 2rem 2rem;
     background-color: var(--clr-grey-9);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     box-shadow: 0 -3px 1px var(--clr-grey-9);

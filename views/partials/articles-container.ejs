@@ -1,0 +1,14 @@
+<div class="articles" id="articles-container">
+    <!-- Placeholder for Dynamically Loaded Articles in the format: -->
+    <% articles.forEach((article) => { %>
+    <a href="/articles/<%= article._id %>" class="article-link">
+        <img src="<%= article.imageUrl %>" alt="<%= article.title %>" />
+        <h4><%= article.title %></h4>
+        <h6>Read More &rarr;</h6>
+        <p>
+            <%= article.author %> &#183; <%= new
+            Date(article.date).toLocaleDateString() %>
+        </p>
+    </a>
+    <% }); %>
+</div>

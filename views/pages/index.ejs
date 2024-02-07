@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="/css/carousel.css" />
+        <link rel="stylesheet" href="./css/articles.css" />
+    </head>
+    <body>
+        <%- include('../partials/navbar'); %>
+        <section class="page">
+            <!-- Slideshow container -->
+            <div class="slideshow-container" id="slideshow-container">
+                <% articles.forEach((article, index) => { %>
+                <div class="mySlides fade">
+                    <div class="numbertext">
+                        <%= index + 1 %> / <%= articles.length %>
+                    </div>
+                    <img
+                        src="<%= article.imageUrl %>"
+                        alt="<%= article.title %>"
+                    />
+                    <div class="text">
+                        <h3><%= article.title %></h3>
+                        <p>
+                            <%= article.author %> &#183; <%= new
+                            Date(article.date).toLocaleDateString() %>
+                        </p>
+                    </div>
+                </div>
+                <% }); %>
+                <!-- Next and previous buttons -->
+                <a class="prev-toggle" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next-toggle" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <!-- The dots/circles -->
+            <div style="text-align: center" id="dots-container">
+                <% for (let i = 0; i < articles.length; i++) { %>
+                <!-- Add a new dot -->
+                <span
+                    class="dot"
+                    id="dot<%= i + 1 %>"
+                    onclick="currentSlide(`<%= i + 1 %>`)"
+                ></span>
+                <% } %>
+            </div>
+
+            <!-- Articles -->
+            <%- include('../partials/articles-container'); %>
+        </section>
+        <!--Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

@@ -23,6 +23,7 @@ Articles section of index and articles page
     background-color: var(--clr-grey-10);
     cursor: pointer;
     transition: 0.5s;
+    color: black;
 }
 
 .articles a:hover {
@@ -66,4 +67,21 @@ Articles section of index and articles page
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
     }
+}
+
+/*
+The css for single articles
+*/
+.article {
+    background-color: var(--clr-grey-10);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5%;
+}
+
+.article * {
+    padding: 10px;
 }
