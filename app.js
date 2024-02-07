@@ -1,11 +1,8 @@
 const express = require('express')
 const app = express()
 
-// Import route files
-const aboutRouter = require('./routes/about')
-const articlesRouter = require('./routes/articles-route')
-const contactRouter = require('./routes/contact')
 const articles = require('./routes/articles')
+const router = require('./routes/routes')
 
 // Connect to the Data Base
 const connectDB = require('./db/connect')
@@ -21,10 +18,8 @@ app.use(express.json())
 // api
 app.use('/api/v1/articles', articles)
 
-// Use route files
-app.use('/about', aboutRouter)
-app.use('/articles', articlesRouter)
-app.use('/contact', contactRouter)
+//routes
+app.use('/', router)
 
 // 404 Route
 app.all('*', (req, res) => {

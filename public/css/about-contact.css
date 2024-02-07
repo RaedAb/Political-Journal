@@ -1,4 +1,4 @@
-.about-page {
+.about-contact-page {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     padding: 5% 10%;
 }
 
-.about-page h3 {
+.about-contact-page h3 {
     background-color: var(--clr-grey-10);
     padding: 5% 10%;
     font-size: 18px;
