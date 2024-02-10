@@ -2,35 +2,45 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const articles = require('./routes/articles')
+const admin = require('./routes/admin')
 const router = require('./routes/routes')
+const adminRouter = require('./routes/admin-routes')
+const { setViewsForPages, setViewsForManage } = require('./middleware/views')
 
-// Connect to the Data Base
+/**
+ * Connect to the DB
+ */
 const connectDB = require('./db/connect')
 require('dotenv').config()
 
-// set view engine to ejs
+/**
+ * Serve ejs
+ */
 app.set('view engine', 'ejs')
+app.use('/', setViewsForPages)
+app.use('/admin', setViewsForManage)
 
-// //Static assets
+//Static assets
 app.use(express.static(path.join(__dirname, 'public')))
-
-// // parse form data
 app.use(express.urlencoded({ extended: false }))
-// // parse json
 app.use(express.json())
 
-// api
+/**
+ * Section for APIs
+ */
 app.use('/api/v1/articles', articles)
+app.use('/api/v1/admin', admin)
 
-//routes
+/**
+ * Section for routes
+ */
 app.use('/', router)
+app.use('/admin', adminRouter)
 
 // 404 Route
 app.all('*', (req, res) => {
     res.status(404).send('Resource not found')
 })
-
-app.set('views', path.join(__dirname, 'views/pages'))
 
 const port = 5000
 // Load the DB and then start the server:

@@ -1,5 +1,10 @@
 const Article = require('../models/Article')
 
+/**
+ * @post    : Retrieves all articles
+ * @route   : GET /api/v1/articles 
+ * @access  : public
+ */
 const getAllArticles = async (req, res) => {
     try {
         const articles = await Article.find()
@@ -9,6 +14,11 @@ const getAllArticles = async (req, res) => {
     }
 }
 
+/**
+ * @post    : Creates an articles
+ * @route   : POST /api/v1/articles 
+ * @access  : private
+ */
 const createArticle = async (req, res) => {
     try {
         const article = await Article.create(req.body)
@@ -18,6 +28,11 @@ const createArticle = async (req, res) => {
     }
 }
 
+/**
+ * @post    : Retrieves single article
+ * @route   : GET /api/v1/articles/:id
+ * @access  : public
+ */
 const getArticle = async (req, res) => {
     try {
         const { id: articleID } = req.params
@@ -34,6 +49,11 @@ const getArticle = async (req, res) => {
     }
 }
 
+/**
+ * @post    : Deletes an article
+ * @route   : GET /api/v1/articles 
+ * @access  : private
+ */
 const deleteArticle = async (req, res) => {
     try {
         const { id: articleID } = req.params
@@ -50,6 +70,11 @@ const deleteArticle = async (req, res) => {
     }
 }
 
+/**
+ * @post    : Updates an article
+ * @route   : GET /api/v1/articles/:id
+ * @access  : private
+ */
 const updateArticle = async (req, res) => {
     try {
         const { id: articleID } = req.params
@@ -65,7 +90,9 @@ const updateArticle = async (req, res) => {
         }
 
         res.status(200).json({ article })
-    } catch (error) {}
+    } catch (error) {
+        res.status(500).json({ msg: error })
+    }
 }
 
 module.exports = {

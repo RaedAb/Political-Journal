@@ -9,14 +9,16 @@
         <section class="page">
             <div class="article">
                 <!-- Placeholder for Dynamically Loaded Article -->
-                <h2><%= title %></h2>
+                <h2><%= article.title %></h2>
                 <p>
-                    <%= author %> &#183; <%= new
-                    Date(date).toLocaleDateString() %>
+                    <%= article.author %> &#183; <%= new
+                    Date(article.date).toLocaleDateString() %>
                 </p>
-                <img src="<%= imageUrl %>" alt="<%= title %>" />
-                <h3><%= content %></h3>
+                <img src="<%= article.imageUrl %>" alt="<%= article.title %>" />
+                <h3><%= article.content %></h3>
             </div>
+            <h2 style="padding: 10px;">More Articles</h2>
+            <%- include('../partials/articles-container'); %>
         </section>
         <!--Footer -->
         <%- include('../partials/footer'); %>

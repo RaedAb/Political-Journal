@@ -8,6 +8,14 @@
         <%- include('../partials/navbar'); %>
         <section class="page">
             <h1>Articles</h1>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search articles..."
+                />
+            </div>
             <!-- Articles -->
             <%- include('../partials/articles-container'); %>
         </section>
