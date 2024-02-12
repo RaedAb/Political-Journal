@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="/css/article.css" />
         <link rel="stylesheet" href="/css/articles.css" />
+        <%- include('../partials/head'); %>
     </head>
     <body>
         <%- include('../partials/navbar'); %>
@@ -12,12 +13,13 @@
                 <h2><%= article.title %></h2>
                 <p>
                     <%= article.author %> &#183; <%= new
-                    Date(article.date).toLocaleDateString() %>
+                    Date(article.date).toLocaleDateString('en-US', { month:
+                    'long', day: '2-digit', year: 'numeric' }) %>
                 </p>
                 <img src="<%= article.imageUrl %>" alt="<%= article.title %>" />
-                <h3><%= article.content %></h3>
+                <h3><%- unescape(article.content) %></h3>
             </div>
-            <h2 style="padding: 10px;">More Articles</h2>
+            <h2 style="padding: 10px">More Articles</h2>
             <%- include('../partials/articles-container'); %>
         </section>
         <!--Footer -->

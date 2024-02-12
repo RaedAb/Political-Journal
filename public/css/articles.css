@@ -15,7 +15,7 @@ Articles section of index and articles page
     z-index: 1;
 }
 
-.articles a {
+.article-container {
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -24,29 +24,33 @@ Articles section of index and articles page
     cursor: pointer;
     transition: 0.5s;
     color: black;
+    position: relative;
+    min-height: min-content;
+    align-self: start; /* Align to the top of the grid cell */
 }
 
-.articles a:hover {
+.article-container:hover {
     transform: scale(1.035);
     transition: 0.5s;
 }
 
-.articles h4:hover,
-.articles h5:hover,
-.articles h6:hover {
+.article-container h4:hover,
+.article-container h5:hover,
+.article-container h6:hover {
     opacity: 0.75;
     transition: 0.25s;
 }
 
-.articles a h4 {
+.article-container h5 {
     font-size: 18px;
     margin: 5px;
     margin-top: 20px;
     margin-bottom: 0;
     text-align: left;
+    color: black;
 }
 
-.articles a h6 {
+.article-container h6 {
     font-size: 12px;
     margin: 5px;
     margin-top: 10px;
@@ -54,7 +58,7 @@ Articles section of index and articles page
     text-align: left;
 }
 
-.articles a p {
+.article-container p {
     margin: 5px;
     margin-bottom: 20px;
     font-size: 12px;
@@ -73,25 +77,6 @@ Articles section of index and articles page
 }
 
 /*
-The css for single articles
-*/
-.article {
-    background-color: var(--clr-grey-10);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 5%;
-    width: 100%;
-}
-
-.article * {
-    padding: 10px;
-    width: 100%;
-}
-
-/*
 CSS for the search bar
 */
 .search-bar {
@@ -104,14 +89,95 @@ CSS for the search bar
 
 .search-bar i {
     position: absolute;
-    left: 10px; /* Adjust the left position as needed */
+    left: 10px;
     color: #ccc;
 }
 
 #searchInput {
     text-align: center;
-    padding: 8px 8px 8px 30px; /* Adjust the padding to align with the icon */
+    padding: 8px 8px 8px 30px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+}
+
+.delete-article {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-article:hover {
+    transform: scale(1.035);
+    transition: 0.5s;
+}
+
+.add-article {
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    vertical-align: middle;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.add-article:hover {
+    transform: scale(1.035);
+    transition: 0.5s;
+}
+
+.add-article:active {
+    opacity: 70%;
+}
+
+/*
+Section for the submit article page css
+*/
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input[type='text'],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type='submit'] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: center;
+}
+input[type='submit']:hover {
+    background-color: #45a049;
 }

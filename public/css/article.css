@@ -1,0 +1,32 @@
+.article {
+    background-color: var(--clr-grey-10);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 5%;
+    width: 100%;
+}
+
+.article * {
+    padding: 10px;
+    width: 100%;
+}
+
+.article h3 {
+    text-align: left;
+    white-space: pre-wrap;
+    padding-top: 5%;
+    line-height: 1.75rem;
+}
+
+.article a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 0;
+}
+
+.article a:hover {
+    text-decoration: underline; /* Add underline on hover for links */
+}

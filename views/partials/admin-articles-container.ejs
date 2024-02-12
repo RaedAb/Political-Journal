@@ -2,8 +2,11 @@
     <!-- Placeholder for Dynamically Loaded Articles in the format: -->
     <% articles.forEach((article) => { %>
     <div class="article-container">
+        <button class="delete-article" data-article-id="<%= article._id %>">
+            &#10006;
+        </button>
+        <img src="<%= article.imageUrl %>" alt="<%= article.title %>" />
         <a href="/articles/<%= article._id %>">
-            <img src="<%= article.imageUrl %>" alt="<%= article.title %>" />
             <h5><%= article.title %></h5>
             <h6>Read More &rarr;</h6>
             <p>
@@ -14,4 +17,7 @@
         </a>
     </div>
     <% }); %>
+    <a href="/admin/create-article" class="add-article">
+        <img src="/images/plus.png">
+    </a>
 </div>

@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const {getLoginPage, getAdminIndex} = require('../controllers/admin-routes')
-const validateToken = require('../middleware/auth')
+const { getLoginPage, getAdminIndex, authenticateLogin, getCreateArticlePage } = require('../controllers/admin-routes')
+const {validateCookie} = require('../middleware/auth')
 
+router.get('/', validateCookie, getAdminIndex)
+router.get('/create-article', validateCookie, getCreateArticlePage)
 router.get('/login', getLoginPage)
-router.get('/', validateToken, getAdminIndex)
+router.post('/login', authenticateLogin)
 
 module.exports = router

@@ -1,4 +1,3 @@
-const express = require('express')
 const path = require('path')
 
 const setViewsForPages = (req, res, next) => {
@@ -6,9 +5,9 @@ const setViewsForPages = (req, res, next) => {
     next()
 }
 
-const setViewsForManage = (req, res, next) => {
+const setViewsForAdmin = (req, res, next) => {
     req.app.set('views', path.join(__dirname, '..', 'views', 'admin'))
     next()
 }
 
-module.exports = { setViewsForPages, setViewsForManage }
+module.exports = { setViewsForPages, setViewsForAdmin }

@@ -4,11 +4,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Admin Login</title>
-        <link rel="stylesheet" href="/css/login.css" />
+        <link rel="stylesheet" href="/css/admin.css" />
+        <script type="module" src="/js/politics-app.js"></script>
     </head>
     <body>
         <div class="container">
-            <form action="/login" method="POST" class="login-form">
+            <form method="POST" class="login-form">
                 <h2 style="text-align: center;">Admin Login</h2>
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -23,7 +24,8 @@
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" id="loginButton">Login</button>
+                <div id="error-message" class="error"></div>
             </form>
         </div>
     </body>

@@ -5,7 +5,8 @@ const articles = require('./routes/articles')
 const admin = require('./routes/admin')
 const router = require('./routes/routes')
 const adminRouter = require('./routes/admin-routes')
-const { setViewsForPages, setViewsForManage } = require('./middleware/views')
+const cookieParser = require('cookie-parser')
+const { setViewsForPages, setViewsForAdmin } = require('./middleware/views')
 
 /**
  * Connect to the DB
@@ -14,11 +15,14 @@ const connectDB = require('./db/connect')
 require('dotenv').config()
 
 /**
+ * Cookie
+ */
+app.use(cookieParser())
+
+/**
  * Serve ejs
  */
 app.set('view engine', 'ejs')
-app.use('/', setViewsForPages)
-app.use('/admin', setViewsForManage)
 
 //Static assets
 app.use(express.static(path.join(__dirname, 'public')))
@@ -34,8 +38,8 @@ app.use('/api/v1/admin', admin)
 /**
  * Section for routes
  */
-app.use('/', router)
-app.use('/admin', adminRouter)
+app.use('/', setViewsForPages, router)
+app.use('/admin', setViewsForAdmin, adminRouter)
 
 // 404 Route
 app.all('*', (req, res) => {
