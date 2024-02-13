@@ -33,15 +33,15 @@ export const deleteArticle = () => {
 }
 
 export const addArticle = async () => {
-    const submitArticleForm = document.querySelector('.create-article')
+    const submitArticleForm = document.getElementById('create-article')
 
     submitArticleForm.addEventListener('submit', async (event) => {
         event.preventDefault()
 
-        const title = document.getElementById('title').value
-        const author = document.getElementById('author').value
-        const imageUrl = document.getElementById('imageURL').value
-        const content = document.getElementById('content').value
+        const title = document.querySelector('.title').value
+        const author = document.querySelector('.author').value
+        const imageUrl = document.querySelector('.imageURL').value
+        const content = document.querySelector('.content').value
 
         const articleData = {
             title: title,

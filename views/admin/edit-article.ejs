@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <link rel="stylesheet" href="/css/article.css"/>
         <link rel="stylesheet" href="/css/articles.css"/>
@@ -8,28 +8,26 @@
     <body>
         <%- include('../partials/admin-navbar'); %>
         <section class="page">
-            <h1>Add Article</h1>
+            <h1>Edit Article</h1>
             <div class="article">
-                <form id="create-article" class="article-submit-form">
+                <form method="POST" action="/update-article" class="article-submit-form">
                     <div class="form-group">
                         <label for="title">Title:</label>
-                        <textarea name="title" class="title" required></textarea>
+                        <textarea name="title" class="title"><%= article.title %></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="author">Author:</label>
-                        <input name="author" type="text" class="author" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="imageURL">Image URL:</label>
-                        <textarea name="imageURL" class="imageURL" required></textarea>
+                        <label for="imageUrl">Image URL:</label>
+                        <input type="text" name="imageUrl" value="<%= article.imageUrl %>" class="imageUrl"/>
                     </div>
                     <div class="form-group">
                         <label for="content">Content:</label>
-                        <textarea name="content" class="content" required></textarea>
+                        <textarea name="content" class="content"><%- article.content %></textarea>
                     </div>
                     <button type="submit" class="submit">Submit</button>
                 </form>
             </div>
+            <h2 style="padding: 10px">More Articles</h2>
+            <%- include('../partials/admin-articles-container'); %>
         </section>
         <!--Footer -->
         <%- include('../partials/footer'); %>

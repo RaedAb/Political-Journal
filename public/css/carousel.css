@@ -67,13 +67,26 @@
 }
 
 .text h3 {
+    flex: 3;
     color: white;
     background-color: transparent;
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
+
+@media screen and (max-width: 900px) {
+    .text h3 {
+        font-size: 14px;
+    }
+}
+
 .text p {
+    flex: 1;
     color: lightyellow;
     font-size: 12px;
     margin: 0;

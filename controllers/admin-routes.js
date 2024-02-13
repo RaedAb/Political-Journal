@@ -55,7 +55,6 @@ const authenticateLogin = async (req, res) => {
 
 const getAdminIndex = async (req, res) => {
     try {
-        // Make a request to your API endpoint
         const response = await axios.get(
             'http://localhost:5000/api/v1/articles'
         )
@@ -76,6 +75,26 @@ const getAdminIndex = async (req, res) => {
     }
 }
 
+const getAdminSingleArticle = async (req, res) => {
+    try {
+        const { id } = req.params
+        const response = await axios.get(
+            'http://localhost:5000/api/v1/articles'
+        )
+        const { articles } = response.data
+        const article = articles.find((article) => article._id === id)
+
+        res.render('edit-article', {
+            articles: articles.filter((a) => a._id !== id),
+            article,
+        })
+    } catch (error) {
+        console.log(error)
+        console.error('Error fetching article:', error.message)
+        res.status(500).send('Internal Server Error')
+    }
+}
+
 const getCreateArticlePage = (req, res) => {
     res.render('create-article')
 }
@@ -85,4 +104,5 @@ module.exports = {
     getAdminIndex,
     authenticateLogin,
     getCreateArticlePage,
+    getAdminSingleArticle
 }

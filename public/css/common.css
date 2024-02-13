@@ -172,7 +172,6 @@ main {
 }
 .page h3 {
     background-color: var(--clr-grey-10);
-    font-size: 18px;
     text-align: left;
     white-space: pre-wrap;
 }

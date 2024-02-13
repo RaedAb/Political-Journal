@@ -30,3 +30,51 @@
 .article a:hover {
     text-decoration: underline; /* Add underline on hover for links */
 }
+
+/*
+Edit Article CSS
+*/
+
+.article-submit-form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    flex: 1;
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 10px;
+}
+
+.title {
+    height: 100px;
+}
+
+.content {
+    height: 1000px;
+}
+
+.submit {
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(150, 0, 150);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input {
+    vertical-align: top;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}

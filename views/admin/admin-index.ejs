@@ -10,7 +10,6 @@
         <section class="page">
             <!-- Slideshow container -->
             <div class="slideshow-container" id="slideshow-container">
-
                 <% articles.forEach((article, index) => { %>
                 <div class="mySlides fade">
                     <div class="numbertext">
@@ -24,7 +23,9 @@
                         <h3><%= article.title %></h3>
                         <p>
                             <%= article.author %> &#183; <%= new
-                            Date(article.date).toLocaleDateString() %>
+                            Date(article.date).toLocaleDateString('en-US', {
+                            month: 'short', day: '2-digit', year: 'numeric' })
+                            %>
                         </p>
                     </div>
                 </div>
