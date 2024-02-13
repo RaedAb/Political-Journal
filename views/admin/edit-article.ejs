@@ -10,18 +10,22 @@
         <section class="page">
             <h1>Edit Article</h1>
             <div class="article">
-                <form method="POST" action="/update-article" class="article-submit-form">
+                <form method="PATCH" id="edit-article" class="article-submit-form">
                     <div class="form-group">
                         <label for="title">Title:</label>
-                        <textarea name="title" class="title"><%= article.title %></textarea>
+                        <textarea name="title" class="title" required><%= article.title %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" value="<%= article.author %>" class="author" required/>
                     </div>
                     <div class="form-group">
                         <label for="imageUrl">Image URL:</label>
-                        <input type="text" name="imageUrl" value="<%= article.imageUrl %>" class="imageUrl"/>
+                        <input type="text" name="imageUrl" value="<%= article.imageUrl %>" class="imageURL" required/>
                     </div>
                     <div class="form-group">
                         <label for="content">Content:</label>
-                        <textarea name="content" class="content"><%- article.content %></textarea>
+                        <textarea name="content" class="content" required><%- article.content %></textarea>
                     </div>
                     <button type="submit" class="submit">Submit</button>
                 </form>
