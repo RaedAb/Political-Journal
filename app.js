@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const articles = require('./routes/articles')
+const content = require('./routes/content')
 const admin = require('./routes/admin')
 const router = require('./routes/routes')
 const adminRouter = require('./routes/admin-routes')
@@ -34,6 +35,7 @@ app.use(express.json())
  */
 app.use('/api/v1/articles', articles)
 app.use('/api/v1/admin', admin)
+app.use('/api/v1/content', content)
 
 /**
  * Section for routes
