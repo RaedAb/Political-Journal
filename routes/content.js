@@ -3,6 +3,7 @@ const router = express.Router()
 const { validateToken } = require('../middleware/auth')
 const { getContent, updateContent } = require('../controllers/content')
 
-router.route('/:id').get(getContent).patch(validateToken, updateContent)
+router.route('/').get(getContent)
+router.route('/:id').patch(validateToken, updateContent)
 
 module.exports = router

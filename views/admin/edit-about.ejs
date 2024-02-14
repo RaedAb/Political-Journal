@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/head'); %>
+        <link rel="stylesheet" href="/css/about-contact.css" />
+    </head>
+    <body>
+        <%- include('../partials/admin-navbar'); %>
+        <section class="about-contact-page">
+            <h1>About Us</h1>
+            <form method="PATCH" id="edit-about" data-content-id="<%= content._id %>">
+                <div class="form-group">
+                    <textarea name="about" id="about" class="text" required><%= content.about %></textarea>
+                </div>
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </section>
+        <!--Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

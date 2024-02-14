@@ -1,36 +1,3 @@
-export const deleteArticle = () => {
-    document.querySelectorAll('.delete-article').forEach((button) => {
-        button.addEventListener('click', function () {
-            const articleId = this.getAttribute('data-article-id')
-
-            // Confirm if the admin wants to delete the article
-            if (confirm('Are you sure you want to delete this article?')) {
-                const token = getAccessToken()
-
-                fetch(`/api/v1/articles/${articleId}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${token}`,
-                    },
-                })
-                    .then((response) => {
-                        if (response.ok) {
-                            // Article deleted successfully
-                            window.location.reload() // Refresh the page
-                        } else {
-                            console.error('Error deleting article.')
-                        }
-                    })
-                    .catch((error) => {
-                        // Handle network error or other errors
-                        console.error('Error:', error)
-                    })
-            }
-        })
-    })
-}
-
 export const addArticle = async () => {
     const submitArticleForm = document.getElementById('create-article')
 
@@ -74,6 +41,39 @@ export const addArticle = async () => {
     })
 }
 
+export const deleteArticle = () => {
+    document.querySelectorAll('.delete-article').forEach((button) => {
+        button.addEventListener('click', function () {
+            const articleId = this.getAttribute('data-article-id')
+
+            // Confirm if the admin wants to delete the article
+            if (confirm('Are you sure you want to delete this article?')) {
+                const token = getAccessToken()
+
+                fetch(`/api/v1/articles/${articleId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+                    .then((response) => {
+                        if (response.ok) {
+                            // Article deleted successfully
+                            window.location.reload() // Refresh the page
+                        } else {
+                            console.error('Error deleting article.')
+                        }
+                    })
+                    .catch((error) => {
+                        // Handle network error or other errors
+                        console.error('Error:', error)
+                    })
+            }
+        })
+    })
+}
+
 export const editArticle = (articleId) => {
     const editArticleForm = document.getElementById('edit-article')
 
@@ -108,7 +108,75 @@ export const editArticle = (articleId) => {
                 }
             })
             .catch((error) => {
-                // Handle network error or other errors
+                console.error('Error:', error)
+            })
+    })
+}
+
+export const editAbout = () => {
+    const editaboutForm = document.getElementById('edit-about')
+
+    editaboutForm.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        const contentID = event.currentTarget.getAttribute('data-content-id')
+        const about = document.getElementById('about').value
+        console.log(about)
+        const data = {
+            about: about,
+        }
+        const token = getAccessToken()
+
+        fetch(`/api/v1/content/${contentID}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    window.location.href = '/admin'
+                } else {
+                    console.error('Error updating article.')
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error)
+            })
+    })
+}
+
+export const editContact = () => {
+    const editContactForm = document.getElementById('edit-contact')
+
+    editContactForm.addEventListener('submit', async (event) => {
+        event.preventDefault()
+
+        const contentID = event.currentTarget.getAttribute('data-content-id')
+        const contact = document.getElementById('contact').value
+        const data = {
+            contact: contact,
+        }
+        const token = getAccessToken()
+
+        fetch(`/api/v1/content/${contentID}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    window.location.href = '/admin'
+                } else {
+                    console.error('Error updating article.')
+                }
+            })
+            .catch((error) => {
                 console.error('Error:', error)
             })
     })

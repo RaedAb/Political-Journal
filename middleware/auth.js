@@ -32,7 +32,7 @@ const validateCookie = async (req, res, next) => {
     const accessToken = req.cookies.accessToken
     try {
         if (!accessToken) {
-            return res.status(401).send('<h1>Session expired. Please <a href="admin/login">log in</a></h1>')
+            return res.status(401).send('<h1>Session expired. Please <a href="/admin/login">log in</a></h1>')
         }
 
         const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)

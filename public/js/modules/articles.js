@@ -5,7 +5,7 @@ export const search = () => {
         setTimeout(()=> {
             searchArticles()
         }, 500)
-        // I know its counter  intuitive but i like the slight delay effect :)
+        // Delay looks better
     })
 }
 
@@ -13,10 +13,10 @@ export const searchArticles = () => {
     const searchInput = document
         .getElementById('searchInput')
         .value.toLowerCase()
-    const articles = document.querySelectorAll('.article-link')
+    const articles = document.querySelectorAll('.article-container')
 
     articles.forEach((article) => {
-        const articleTitle = article.querySelector('h4').innerText.toLowerCase()
+        const articleTitle = article.querySelector('h5').innerText.toLowerCase()
         const articleAuthor = article.querySelector('p').innerText.toLowerCase()
 
         if (

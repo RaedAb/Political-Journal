@@ -2,13 +2,12 @@ const Content = require('../models/content')
 
 /**
  * @post    : Retrieves content
- * @route   : GET /api/v1/content/:id
+ * @route   : GET /api/v1/content
  * @access  : public
  */
 const getContent = async (req, res) => {
     try {
-        const { id: contentID } = req.params
-        const content = await Content.findOne({ _id: contentID })
+        const content = await Content.find()
         if (!content) {
             return res
                 .status(404)

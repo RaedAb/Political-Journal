@@ -30,7 +30,7 @@ const getFeaturedArticlesPage = async (req, res) => {
 
 /**
  * @post    : Serves the articles page
- * @route   : GET /articles 
+ * @route   : GET /articles
  * @access  : public
  */
 const getArticlesPage = async (req, res) => {
@@ -85,8 +85,16 @@ const getSingleArticlePage = async (req, res) => {
  * @route   : GET /about
  * @access  : public
  */
-const getAboutPage = (req, res) => {
-    res.render('about')
+const getAboutPage = async (req, res) => {
+    try {
+        const response = await axios.get('http://localhost:5000/api/v1/content')
+        const [content] = response.data.content
+        res.render('about', { content })
+    } catch (error) {
+        console.log(error)
+        console.error('Error fetching articles:', error.message)
+        res.status(500).send('Internal Server Error')
+    }
 }
 
 /**
@@ -94,8 +102,16 @@ const getAboutPage = (req, res) => {
  * @route   : GET /contact
  * @access  : public
  */
-const getContactPage = (req, res) => {
-    res.render('contact')
+const getContactPage = async (req, res) => {
+    try {
+        const response = await axios.get('http://localhost:5000/api/v1/content')
+        const [content] = response.data.content
+        res.render('contact', { content })
+    } catch (error) {
+        console.log(error)
+        console.error('Error fetching articles:', error.message)
+        res.status(500).send('Internal Server Error')
+    }
 }
 
 module.exports = {

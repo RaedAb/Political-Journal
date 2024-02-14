@@ -2,7 +2,13 @@ import toggleNavigation from './modules/navbar.js'
 import slideShow from './modules/carousel.js'
 import search from './modules/articles.js'
 import login from './modules/auth.js'
-import { addArticle, deleteArticle, editArticle } from './modules/admin.js'
+import {
+    addArticle,
+    deleteArticle,
+    editAbout,
+    editArticle,
+    editContact,
+} from './modules/admin.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     const pageActions = {
@@ -29,8 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteArticle()
         },
         '/admin/create-article': () => {
-            console.log(window.location.pathname)
+            toggleNavigation()
             addArticle()
+        },
+        '/admin/articles': () => {
+            toggleNavigation()
+            search()
+            deleteArticle()
+        },
+        '/admin/about': () => {
+            toggleNavigation()
+            editAbout()
+        },
+        '/admin/contact': () => {
+            toggleNavigation()
+            editContact()
         },
     }
 

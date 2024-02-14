@@ -75,12 +75,33 @@ const getAdminIndex = async (req, res) => {
     }
 }
 
+const getAdminArticles = async (req, res) => {
+    try {
+        // Make a request to API endpoint
+        const response = await axios.get(
+            'http://localhost:5000/api/v1/articles'
+        )
+        const { articles } = response.data
+
+        // Sort the articles by date in descending order (newest to oldest)
+        articles.sort((a, b) => new Date(b.date) - new Date(a.date))
+
+        // Render the admin-articles.ejs template and pass the articles data
+        res.render('admin-articles', { articles })
+    } catch (error) {
+        console.log(error)
+        console.error('Error fetching articles:', error.message)
+        res.status(500).send('Internal Server Error')
+    }
+}
+
 const getAdminSingleArticle = async (req, res) => {
     try {
         const { id } = req.params
         const response = await axios.get(
             'http://localhost:5000/api/v1/articles'
         )
+        // I use get all articles api bc im loading one and all below
         const { articles } = response.data
         const article = articles.find((article) => article._id === id)
 
@@ -99,10 +120,37 @@ const getCreateArticlePage = (req, res) => {
     res.render('create-article')
 }
 
+const getAdminAboutUs = async (req, res) => {
+    try {
+        const response = await axios.get('http://localhost:5000/api/v1/content')
+        const [content] = response.data.content
+        res.render('edit-about', { content })
+    } catch (error) {
+        console.log(error)
+        console.error('Error fetching articles:', error.message)
+        res.status(500).send('Internal Server Error')
+    }
+}
+
+const getAdminContact = async (req, res) => {
+    try {
+        const response = await axios.get('http://localhost:5000/api/v1/content')
+        const [content] = response.data.content
+        res.render('edit-contact', { content })
+    } catch (error) {
+        console.log(error)
+        console.error('Error fetching articles:', error.message)
+        res.status(500).send('Internal Server Error')
+    }
+}
+
 module.exports = {
     getLoginPage,
     getAdminIndex,
+    getAdminArticles,
     authenticateLogin,
     getCreateArticlePage,
-    getAdminSingleArticle
+    getAdminSingleArticle,
+    getAdminAboutUs,
+    getAdminContact,
 }
