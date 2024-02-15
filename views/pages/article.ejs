@@ -17,7 +17,7 @@
                     'long', day: '2-digit', year: 'numeric' }) %>
                 </p>
                 <img src="<%= article.imageUrl %>" alt="<%= article.title %>" />
-                <h3><%- unescape(article.content) %></h3>
+                <h3><%- article.content %></h3>
             </div>
             <h2 style="padding: 10px">More Articles</h2>
             <%- include('../partials/articles-container'); %>

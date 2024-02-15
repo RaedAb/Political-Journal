@@ -14,6 +14,10 @@
     white-space: pre-wrap;
 }
 
+.about-contact-page a {
+    color: #007bff;;
+}
+
 /*
 Section to edit about and contact
 */
