@@ -11,6 +11,13 @@ export const slideShow = () => {
     const next = document.querySelector('.next-toggle')
     const dot = document.querySelectorAll('.dot')
 
+    // Auto change slide
+    setInterval(()=> {
+        slideIndex += 1;
+        showSlides(slideIndex)
+    }, 7500)
+
+    // click right
     prev.addEventListener('click', () => {
         slideIndex -= 1
         setTimeout(() => {
@@ -19,6 +26,7 @@ export const slideShow = () => {
         console.log(slideIndex)
     })
 
+    // click left
     next.addEventListener('click', () => {
         slideIndex += 1
         setTimeout(() => {
