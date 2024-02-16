@@ -32,7 +32,7 @@ const login = async () => {
             window.location.href = '/admin'
         } catch (error) {
             const errorMessageElement = document.getElementById('error-message')
-            errorMessageElement.innerText = error.message
+            errorMessageElement.innerText = `*${error.message}`
         }
     })
 }

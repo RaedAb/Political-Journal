@@ -11,6 +11,9 @@ import {
 } from './modules/admin.js'
 
 document.addEventListener('DOMContentLoaded', () => {
+    // ease in effect
+    document.querySelector('section').classList.add('loaded')
+
     const pageActions = {
         '/': () => {
             toggleNavigation()
