@@ -78,3 +78,11 @@ label {
     margin-bottom: 5px;
     font-size: 16px;
 }
+
+.error {
+    size: 10px;
+    color: red;
+    margin: 5px;
+    text-align: center;
+    vertical-align: center;
+}

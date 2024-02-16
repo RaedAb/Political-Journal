@@ -26,17 +26,16 @@ export const addArticle = async () => {
             body: JSON.stringify(articleData),
         })
             .then((response) => {
-                if (response.ok) {
-                    // Article added successfully
-                    alert('Article was added.')
-                    window.location.href = '/admin'
-                } else {
-                    console.error('Error adding article.')
+                if (!response.ok) {
+                    throw new Error(
+                        'Something went wrong. Article was not added.'
+                    )
                 }
+
+                window.location.href = '/admin'
             })
             .catch((error) => {
-                // Handle network error or other errors
-                console.error('Error:', error)
+                alert(error)
             })
     })
 }
@@ -58,16 +57,16 @@ export const deleteArticle = () => {
                     },
                 })
                     .then((response) => {
-                        if (response.ok) {
-                            // Article deleted successfully
-                            window.location.reload() // Refresh the page
-                        } else {
-                            console.error('Error deleting article.')
+                        if (!response.ok) {
+                            throw new Error(
+                                'Something went wrong. Article could not be deleted.'
+                            )
                         }
+
+                        window.location.href = '/admin'
                     })
                     .catch((error) => {
-                        // Handle network error or other errors
-                        console.error('Error:', error)
+                        alert(error)
                     })
             }
         })
@@ -101,14 +100,16 @@ export const editArticle = (articleId) => {
             body: JSON.stringify(articleData),
         })
             .then((response) => {
-                if (response.ok) {
-                    window.location.href = '/admin'
-                } else {
-                    console.error('Error updating article.')
+                if (!response.ok) {
+                    throw new Error(
+                        'Something went wrong. Article could not be edited.'
+                    )
                 }
+
+                window.location.href = '/admin'
             })
             .catch((error) => {
-                console.error('Error:', error)
+                alert(error)
             })
     })
 }
@@ -136,14 +137,16 @@ export const editAbout = () => {
             body: JSON.stringify(data),
         })
             .then((response) => {
-                if (response.ok) {
-                    window.location.href = '/admin'
-                } else {
-                    console.error('Error updating article.')
+                if (!response.ok) {
+                    throw new Error(
+                        'About could not be updated.'
+                    )
                 }
+
+                window.location.href = '/admin'
             })
             .catch((error) => {
-                console.error('Error:', error)
+                alert(error)
             })
     })
 }
@@ -170,14 +173,14 @@ export const editContact = () => {
             body: JSON.stringify(data),
         })
             .then((response) => {
-                if (response.ok) {
-                    window.location.href = '/admin'
-                } else {
-                    console.error('Error updating article.')
+                if (!response.ok) {
+                    throw new Error('Contact could not be updated.')
                 }
+
+                window.location.href = '/admin'
             })
             .catch((error) => {
-                console.error('Error:', error)
+                alert(error)
             })
     })
 }
