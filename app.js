@@ -1,3 +1,5 @@
+const cookieParser = require('cookie-parser')
+require('express-async-errors')
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -6,13 +8,14 @@ const content = require('./routes/content')
 const admin = require('./routes/admin')
 const router = require('./routes/routes')
 const adminRouter = require('./routes/admin-routes')
-const cookieParser = require('cookie-parser')
+const notFound = require('./middleware/not-found')
 const { setViewsForPages, setViewsForAdmin } = require('./middleware/views')
 
 /**
  * Connect to the DB
  */
 const connectDB = require('./db/connect')
+const errorHandler = require('./middleware/error-handler')
 require('dotenv').config()
 
 /**
@@ -43,12 +46,11 @@ app.use('/api/v1/content', content)
 app.use('/', setViewsForPages, router)
 app.use('/admin', setViewsForAdmin, adminRouter)
 
-// 404 Route
-app.all('*', (req, res) => {
-    res.status(404).send('Resource not found')
-})
+// errors
+app.use(notFound)
+app.use(errorHandler)
 
-const port = 5000
+const port = process.env.PORT || 5000
 // Load the DB and then start the server:
 const start = async () => {
     try {

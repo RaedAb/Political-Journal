@@ -1,4 +1,6 @@
 const Content = require('../models/content')
+const { NotFoundError } = require('../errors')
+const { StatusCodes } = require('http-status-codes')
 
 /**
  * @post    : Retrieves content
@@ -6,18 +8,14 @@ const Content = require('../models/content')
  * @access  : public
  */
 const getContent = async (req, res) => {
-    try {
-        const content = await Content.find()
-        if (!content) {
-            return res
-                .status(404)
-                .json({ msg: `No content with id: ${contentID}` })
-        }
-
-        res.status(200).json({ content })
-    } catch (error) {
-        res.status(500).json({ error: 'Internal Server error' })
+    const content = await Content.find()
+    if (!content) {
+        throw new NotFoundError(
+            `Content with id ${articleID} could not be found`
+        )
     }
+
+    res.status(StatusCodes.OK).json({ content })
 }
 
 /**
@@ -26,23 +24,19 @@ const getContent = async (req, res) => {
  * @access  : private
  */
 const updateContent = async (req, res) => {
-    try {
-        const { id: contentID } = req.params
-        const content = await Content.findOneAndUpdate(
-            { _id: contentID },
-            req.body,
-            { new: true, runValidators: true }
+    const { id: contentID } = req.params
+    const content = await Content.findOneAndUpdate(
+        { _id: contentID },
+        req.body,
+        { new: true, runValidators: true }
+    )
+    if (!content) {
+        throw new NotFoundError(
+            `Content with id ${articleID} could not be found`
         )
-        if (!content) {
-            return res
-                .status(404)
-                .json({ msg: `No content with id: ${contentID}` })
-        }
-
-        res.status(200).json({content})
-    } catch (error) {
-        res.status(500).json({msg: error})
     }
+
+    res.status(StatusCodes.OK).json({ content })
 }
 
 module.exports = {
