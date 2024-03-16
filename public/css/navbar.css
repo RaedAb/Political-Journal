@@ -26,11 +26,30 @@ nav {
     color: var(--clr-primary-1);
     transform: rotate(90deg);
 }
+
+/* LOGO SECTION */
 .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
     height: 65px;
 }
+
+.logo-text {
+    color: #530d56;
+    font-size: 1.35rem;
+    vertical-align: center;
+    margin: 0;
+    display: none;
+}
+
 .links a {
-    color: rgb(75, 0, 75);
+    color: #530d56;
     font-size: 1rem;
     text-transform: capitalize;
     letter-spacing: var(--spacing);
@@ -69,6 +88,9 @@ nav {
     }
     .nav-toggle {
         display: none;
+    }
+    .logo-text {
+        display: inline-block;
     }
     .links {
         height: auto;
