@@ -4,7 +4,6 @@ Navbar
 ===============
 */
 nav {
-    box-shadow: var(--light-shadow);
     background: var(--clr-white);
     z-index: 2;
 }
