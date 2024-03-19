@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle /admin/articles/:id route separately
     if (window.location.pathname.startsWith('/admin/articles/')) {
         const articleId = window.location.pathname.split('/').pop()
+        toggleNavigation()
         editArticle(articleId)
     } else {
         const currentPageAction = pageActions[window.location.pathname]
