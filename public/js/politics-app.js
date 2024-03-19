@@ -56,11 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     }
 
-    // Handle /admin/articles/:id route separately
-    if (window.location.pathname.startsWith('/admin/articles/')) {
+    if (window.location.pathname.startsWith('/articles/')) {
         const articleId = window.location.pathname.split('/').pop()
         toggleNavigation()
-        editArticle(articleId)
+        // Handle route for "/articles/:id"
+        if (window.location.pathname.startsWith('/admin/articles/')) {
+            // Additional logic for "/admin/articles/:id"
+            editArticle(articleId)
+        }
     } else {
         const currentPageAction = pageActions[window.location.pathname]
         if (currentPageAction) {
