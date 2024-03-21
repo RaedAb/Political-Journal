@@ -76,6 +76,12 @@ Articles section of index and articles page
     }
 }
 
+@media screen and (max-width: 600px) {
+    .articles {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 /*
 CSS for the search bar
 */

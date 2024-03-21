@@ -119,6 +119,10 @@
     .text p {
         font-size: 6px;
     }
+
+    .slideshow-container {
+        padding-top: 60%;
+    }
 }
 
 
