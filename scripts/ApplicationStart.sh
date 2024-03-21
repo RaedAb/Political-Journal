@@ -4,4 +4,4 @@
 cd ~
 
 # Start the Node.js application using PM2
-pm2 start app.js --name political-journal
+pm2 start political-journal
