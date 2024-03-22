@@ -10,12 +10,13 @@ const router = require('./routes/routes')
 const adminRouter = require('./routes/admin-routes')
 const notFound = require('./middleware/not-found')
 const { setViewsForPages, setViewsForAdmin } = require('./middleware/views')
+const errorHandler = require('./middleware/error-handler')
+const httpsRedirect = require('./middleware/https-redirect')
 
 /**
  * Connect to the DB
  */
 const connectDB = require('./db/connect')
-const errorHandler = require('./middleware/error-handler')
 require('dotenv').config()
 
 /**
@@ -46,9 +47,17 @@ app.use('/api/v1/content', content)
 app.use('/', setViewsForPages, router)
 app.use('/admin', setViewsForAdmin, adminRouter)
 
-// errors
+/**
+ * Errors
+ */
 app.use(notFound)
 app.use(errorHandler)
+
+/**
+ * HTTPS Redirect
+ */
+app.use(httpsRedirect)
+
 
 const port = process.env.PORT || 5000
 // Load the DB and then start the server:
