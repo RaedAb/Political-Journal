@@ -59,7 +59,7 @@ app.use(errorHandler)
 app.use(httpsRedirect)
 
 
-const port = process.env.PORT || 80
+const port = process.env.PORT || 5000
 // Load the DB and then start the server:
 const start = async () => {
     try {
