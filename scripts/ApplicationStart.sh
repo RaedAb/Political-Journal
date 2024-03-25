@@ -9,5 +9,5 @@ if pm2 info political-journal &> /dev/null; then
     pm2 start political-journal
 else
     # If it doesn't exist, start the application with the specified name
-    pm2 start app.js --name "political-journal"
+    pm2 start app.js --name political-journal
 fi
